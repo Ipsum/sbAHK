@@ -34,8 +34,26 @@ esc::
     exitApp
 }
 
-enter::
+; Pause pauses the script
+Pause::Pause
+
+$r::
 {
-    tracking := not tracking
-    send, {enter}
+	tracking := false
+	Send, r
+	return
+}
+
+$enter::
+{
+	if tracking
+	{
+		tracking := false
+    }
+	else
+	{
+    	tracking := true
+    }
+	Send, {enter}
+	return
 }
